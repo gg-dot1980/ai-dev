@@ -1,3 +1,7 @@
+[繁體中文](#zh-tw) | [English](#english)
+
+<a id="zh-tw"></a>
+
 # AI 開發工作流 v0.1.0 POC
 
 這是已獲准公開的 v0.1.0 概念驗證（POC）。公開此工具包不等於完整部署流程或生產驗收。目標是把規格、測試、可追溯產物、部署、健康檢查、回復與交接拆成可驗證步驟。**不是 OCR4 策略或生產發布許可。**
@@ -37,3 +41,51 @@ python3 run_example.py --out /tmp/ai-dev-negative-output --negative
 ## 後續 patches
 
 每個增量 patch 同步修改程式、固定測試、合成證據與 [CHANGELOG](CHANGELOG.md)，更新 [VERSION](VERSION)。保留原失敗案例，對相同來源 SHA 重新驗證；未測項不能列為通過。使用 Draft PR 進行審查，發布前核對授權範圍與遠端內容。
+
+各 Markdown 頁完整中英文並存並提供語言導覽；程式與 JSON 維持單一來源。
+
+[English ↓](#english)
+
+<a id="english"></a>
+
+# AI Development Workflow v0.1.0 POC
+
+This v0.1.0 proof of concept is authorized for public publication. Publishing this toolkit is not acceptance of a complete deployment workflow or production readiness. Its purpose is to separate specifications, tests, traceable artifacts, deployment, health checks, rollback and handoff into verifiable stages. **It is neither an OCR4 strategy nor production-release permission.**
+
+## Dependency-free example
+
+Requires Python 3.10+. Uses only the standard library: no network, credentials or real deployment.
+
+```sh
+python3 -m unittest discover -s tests -v
+python3 run_example.py --out /tmp/ai-dev-example-output
+python3 run_example.py --out /tmp/ai-dev-negative-output --negative
+# The last command must exit 2: corrupted package rejected, baseline unchanged.
+```
+
+The example builds fixed JSON artifacts and SHA-256 digests, then simulates baseline → candidate → baseline. Digest, schema, authorization or health-check failures must not switch active state. `authorized=True` represents test-scenario permission, not authentication or remote access control. A digest demonstrates content equality, not trusted provenance; a real deployment must obtain its expected digest from independently trusted CI evidence.
+
+## Layout
+
+- `core/`: pure artifact building and validation, without deployment access.
+- `adapters/simulated.py`: replaceable in-memory deployment simulator.
+- `docs/SPEC.md`: states, evidence and acceptance criteria.
+- `docs/SITES-ADAPTER.md`: manual integration guidance; no site is configured.
+- `templates/`: specification, PR, independent review and handoff forms.
+- `evidence/`: synthetic results only; no private locations, accounts, raw images or secrets.
+
+## Three distinct conclusions
+
+1. This example: repeatable local synthetic tests and simulated rollback, not real HTTP or browser validation.
+2. Observed Slime workflow: private staging baseline, candidate and rollback each passed 9/9 HTTP checks, with matching rollback hashes. CI Worker bytes matched, but the platform repackaged the manifest, so whole-package byte identity was not established. Browser startup, input and stop succeeded for v2.13. This limited workflow evidence does not establish cross-version game win rates, production-site acceptance or production release gates.
+3. Independently enforced review/merge gates: not configured or verified in Slime; this POC does not configure them either. An author's checkbox, green CI or Draft PR cannot substitute for independent review and platform enforcement.
+
+## Publication rules
+
+Read the current specification, source commit, evidence and limitations, then obtain review by someone other than the author. Record the exact commit/digest, destination, data visibility, scope, rollback plan and explicit user authorization. Public document push, merge, staging deployment and production deployment are separate actions; permission for one does not imply the others. This package includes no external CI workflow or deployment configuration; documentation is not an enabled security control.
+
+## Subsequent patches
+
+Each incremental patch must synchronize code, fixed tests, synthetic evidence and [CHANGELOG](CHANGELOG.md), and update [VERSION](VERSION). Retain failure cases and revalidate against the same source SHA. Untested items cannot be marked passed. Use Draft PR review, then verify authorization scope and remote contents before publication. Full Traditional Chinese and English documentation coexist on each page; code and JSON remain single-source.
+
+[繁體中文 ↑](#zh-tw)

@@ -1,3 +1,7 @@
+[繁體中文](#zh-tw) | [English](#english)
+
+<a id="zh-tw"></a>
+
 # Sites adapter 整合指引（未配置）
 
 核心應輸出來源 commit、產物及可信摘要；adapter 負責平台格式、授權、隔離、部署、健康與回復。不要在 core 放平台憑證。每個真實 adapter 需另外實作並驗收，不能將本機模擬器直接改名為 Sites 部署。
@@ -11,3 +15,23 @@
 7. 確認原正式環境未變，記錄可見性、限制及不同驗證層。staging 成功不授權 production，公開規則需再經審查與發布授權。
 
 本檔無實際 Site URL／ID、token、CLI 祕密或自動部署設定。
+
+[English ↓](#english)
+
+<a id="english"></a>
+
+# Sites adapter integration guide (not configured)
+
+Core produces the source commit, artifact and trusted digest; the adapter owns platform format, permission, isolation, deployment, health and rollback. Keep platform credentials out of core. Every real adapter requires separate implementation and acceptance; renaming a local simulator does not make it a Sites deployment.
+
+1. Obtain explicit authorization for separate private staging. Use the official Sites skill/tools and inspect capabilities and current versions. Never make production public to bypass login.
+2. Create a separate site using empty/synthetic data. Verify absence of production DB, R2, leaderboard and external production API bindings.
+3. Retrieve the artifact and digest for the exact CI SHA. Check provenance and absence of secrets. If the platform repackages its manifest, record original-package, Worker and platform-package digests separately, including the precise equivalence that can be proved.
+4. Deploy an identifiable baseline, read back the platform version, then check HTTP expected values and browser startup, input and stop. If login fails, record BLOCKED; do not retry in a loop.
+5. Deploy the candidate and check health in the same way. Use version protection for platform writes. On conflict, stop and compare again; do not overwrite another writer's version.
+6. Restore the known baseline using supported platform operations, then read back and compare digests, health and browser behavior. Preserve diagnostics and report failure instead of claiming safe completion.
+7. Verify the original production environment is unchanged. Record visibility, limitations and separate validation layers. Staging success does not authorize production; publishing rules still requires review and publication permission.
+
+This file contains no real Site URL/ID, token, CLI secret or automatic deployment configuration.
+
+[繁體中文 ↑](#zh-tw)

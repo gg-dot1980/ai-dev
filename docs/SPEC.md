@@ -1,3 +1,7 @@
+[繁體中文](#zh-tw) | [English](#english)
+
+<a id="zh-tw"></a>
+
 # 工作流規格 v0.1（草稿）
 
 ## 可量測狀態
@@ -29,3 +33,41 @@
 ## 非目標
 
 不設定 production，不連資料庫、不使用 API key、不自動修改 repo 權限，不把單版本功能 smoke 當成 OCR4 跨版本勝率驗收。
+
+[English ↓](#english)
+
+<a id="english"></a>
+
+# Workflow specification v0.1 (POC)
+
+## Measurable states
+
+| State | Required evidence | If unmet |
+|---|---|---|
+| DRAFT | Requirements, scope, acceptance, prohibitions, owner | No external action |
+| CHECKED | Fixed cases, commands, environment, totals/failures/untested | Stay DRAFT/BLOCKED |
+| BUILT | Two clean builds, equal digest, source commit, tool versions | No deployment |
+| REVIEWED | Non-author review, complete diff, same head SHA, open issues | Do not claim independent approval |
+| STAGED | Explicit authorization, isolation checks, platform version, CI provenance and repackaging differences | Do not claim live deployment |
+| HEALTH_VERIFIED | HTTP counts/expected values, browser startup/input/stop | Mark each missing check untested |
+| ROLLBACK_VERIFIED | Restore same baseline, readback, digest/health/browser recheck | Do not claim recoverability |
+| ACCEPTED | All scoped criteria satisfied, owner acceptance, residual risks | Still not publication permission |
+| PUBLISHED | Specific publication permission, destination, remote SHA and content readback | Do not claim publication |
+
+Also use WAITING/BLOCKED/FAILED with reason, waiting party, last evidence time and next step. An open task is not proof of active execution. These states specify the work record; the example does not implement a complete release-control system.
+
+## Evidence fields
+
+`schema_version, project, scope, hypothesis, source_commit, artifact_sha256, artifact_type, build_command, runtime_version, environment, adapter, platform_version, started_at, finished_at, state, passed, failed, untested, expected, observed, evidence_location, reviewer, review_head_sha, authorization_scope, authorization_time, rollback_baseline, limitations, next_step`.
+
+Use ISO 8601 timestamps with timezone. Public evidence contains only publishable summaries and synthetic data. Keep private evidence under controlled retention; do not insert private paths or URLs into public templates. Separate machine outcomes from human acceptance; use `unknown` when evidence is absent.
+
+## Independently enforced gate checks before deployment
+
+A repository administrator must separately verify branch rules, exact required-check names, CODEOWNERS coverage, non-author approval, dismissal of stale approval after new commits, administrator/bypass restrictions, prevention of unauthorized direct pushes and protected deployment environments. Preserve actual configuration readback and a rejected negative case. This POC configures none of these; templates and self-signatures do not demonstrate enforcement.
+
+## Non-goals
+
+No production setup, database connections, API keys or automatic repository-permission changes. Single-version functional smoke tests do not establish OCR4 cross-version win-rate acceptance.
+
+[繁體中文 ↑](#zh-tw)

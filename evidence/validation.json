@@ -1,6 +1,7 @@
 {
   "scope": "synthetic-local-only",
   "version": "0.1.0",
+  "patch": "same-page-bilingual-docs",
   "python_version": "3.12.14",
   "clean_runs": [
     {

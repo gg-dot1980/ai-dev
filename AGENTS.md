@@ -1,3 +1,7 @@
+[繁體中文](#zh-tw) | [English](#english)
+
+<a id="zh-tw"></a>
+
 # 執行規則
 
 - 先讀 README、SPEC 及本次任務授權，確認目標、驗收與禁止範圍。
@@ -7,3 +11,23 @@
 - 不上傳圖片、機密、私人 URL／ID 或真實使用者資料。範例僅使用合成資料。
 - 不自行新增排程、改權限、啟用 CI、推送、合併或部署。發布需具體授權及驗證。
 - 執行 `python3 -m unittest discover -s tests -v` 與正／負示例；保留實際結果，不虛稱成功。
+
+- ai-dev 後續所有文件變更須在同一次修改同步維護同頁完整繁體中文與英文；共用程式與資料維持單一來源。
+
+[English ↓](#english)
+
+<a id="english"></a>
+
+# Execution rules
+
+- Read README, SPEC and the current task authorization first; identify objectives, acceptance and prohibited scope.
+- Assign one primary executor per task. Compare source versions before rereading changed evidence.
+- Test one explicit hypothesis per round; retain fixed and failing samples. Obtain new evidence before retrying the same error under unchanged conditions.
+- Keep changes and failures traceable. Never conflate simulation, HTTP, browser, game win-rate and publication acceptance.
+- Do not upload images, secrets, private URLs/IDs or real user data. Examples use synthetic data only.
+- Do not independently add schedules, change permissions, enable CI, push, merge or deploy. Publication requires specific authorization and verification.
+- Run `python3 -m unittest discover -s tests -v` and the positive/negative examples. Preserve actual outcomes; never claim an unverified success.
+
+- Every future ai-dev documentation change must update full Traditional Chinese and English together on the same page in the same change; shared code and data remain single-source.
+
+[繁體中文 ↑](#zh-tw)
