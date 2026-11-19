@@ -1,0 +1,48 @@
+{
+  "scope": "synthetic-local-only",
+  "version": "0.1.0",
+  "python_version": "3.12.14",
+  "clean_runs": [
+    {
+      "clean_run": 1,
+      "unit_tests_passed": 9,
+      "positive_exit": 0,
+      "corrupt_negative_exit": 2,
+      "report": {
+        "baseline_sha256": "2fd4bc4e0db35d07e337da956d6b1ab89df6e9bef4cba869c612278021ff431a",
+        "browser_e2e": "not_run",
+        "candidate_sha256": "91b831aec4d88ec160680ed594798a59de25af0cd93e3ad4de08bc3aac3d30ab",
+        "independent_review_gate": "not_configured",
+        "publication_authorized": false,
+        "real_deployment": false,
+        "rollback_equal": true,
+        "schema": 1,
+        "scope": "synthetic-local-only",
+        "state": "SIMULATED_ROLLBACK_VERIFIED"
+      }
+    },
+    {
+      "clean_run": 2,
+      "unit_tests_passed": 9,
+      "positive_exit": 0,
+      "corrupt_negative_exit": 2,
+      "report": {
+        "baseline_sha256": "2fd4bc4e0db35d07e337da956d6b1ab89df6e9bef4cba869c612278021ff431a",
+        "browser_e2e": "not_run",
+        "candidate_sha256": "91b831aec4d88ec160680ed594798a59de25af0cd93e3ad4de08bc3aac3d30ab",
+        "independent_review_gate": "not_configured",
+        "publication_authorized": false,
+        "real_deployment": false,
+        "rollback_equal": true,
+        "schema": 1,
+        "scope": "synthetic-local-only",
+        "state": "SIMULATED_ROLLBACK_VERIFIED"
+      }
+    }
+  ],
+  "candidate_builds_equal": true,
+  "candidate_sha256": "91b831aec4d88ec160680ed594798a59de25af0cd93e3ad4de08bc3aac3d30ab",
+  "real_deployment": false,
+  "external_ci": "not_configured",
+  "independent_review": "not_performed"
+}
