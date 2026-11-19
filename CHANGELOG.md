@@ -4,6 +4,12 @@
 
 # 變更紀錄
 
+## 0.1.2 — 2026-11-19
+
+- 新增繁中與英文空白啟動表，兩語 README 均提供入口；八個欄位對等，不預填使用者資料。僅表格採分語言例外，未改程式或權限。
+- AI 啟動新專案必須呈現八題並詢問缺漏，確認前五題後才可視計畫為議定，其餘於相關操作前確認。
+- 重跑固定測試與正負案例，更新證據及摘要。
+
 ## 0.1.1 — 2026-11-19
 
 - 將流程文件改為專案中立的通用指引，同步雙語規則及 PR 檢查表。
@@ -27,6 +33,12 @@
 <a id="english"></a>
 
 # Changelog
+
+## 0.1.2 — 2026-11-19
+
+- Add separate Traditional Chinese and English blank kickoff forms, linked from both README language sections; eight equivalent fields contain no prefilled user data. Only these forms have the separate-language exception; code and permissions are unchanged.
+- AI starting a new project must present all eight questions and ask about missing answers; confirm the first five before treating the plan as agreed, and resolve the rest before relevant actions.
+- Rerun fixed tests and positive/negative cases; refresh evidence and digests.
 
 ## 0.1.1 — 2026-11-19
 

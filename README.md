@@ -2,9 +2,13 @@
 
 <a id="zh-tw"></a>
 
-# AI 開發工作流 v0.1.1 POC
+# AI 開發工作流 v0.1.2 POC
 
-這是已獲准公開的 v0.1.1 概念驗證（POC）。公開此工具包不等於完整部署流程或生產驗收。目標是把規格、測試、可追溯產物、部署、健康檢查、回復與交接拆成可驗證步驟。**不是特定應用程式的驗收或生產發布許可。**
+這是已獲准公開的 v0.1.2 概念驗證（POC）。公開此工具包不等於完整部署流程或生產驗收。目標是把規格、測試、可追溯產物、部署、健康檢查、回復與交接拆成可驗證步驟。**不是特定應用程式的驗收或生產發布許可。**
+
+## 新專案啟動表
+
+複製空白表：[繁體中文](templates/PROJECT-INTAKE.zh-TW.md)／[English](templates/PROJECT-INTAKE.en.md)。先填前五項即可起草，其餘於相關操作前確認；沿用已知資訊，不填秘密，填表不授予發布權限。僅這兩份表格依明確要求分語言存放，其餘文件仍採同頁雙語。
 
 ## 零相依套件示例
 
@@ -55,13 +59,21 @@ python3 run_example.py --out /tmp/ai-dev-negative-output --negative
 - 各採用專案在自己的儲存庫建立最小 overlay：固定本規範版本／commit，列出建置與測試命令、驗收門檻、各角色負責人、允許環境、部署 adapter、回復步驟及授權範圍。專屬資料留在該專案，不混入共用核心。
 - 採用這份規範本身不授予存取或發布權限，也不代表軟體授權條款已選定。沒有明確批准就停在提案或本機驗證。
 
+## AI 新專案詢問義務
+
+AI 啟動新專案時（不是單純瀏覽或維護既有專案），必須向使用者呈現全部八題或預填答案供確認，直接詢問每個缺漏或未確認的答案，可合併提問，並記錄回覆及待辦。已明確提供的答案沿用，不重複詢問、不猜測、不推定授權。第 1–5 題確認前，不得把範圍或 POC 計畫當作已議定，也不得把實作當作已批准；第 6–8 題可明確標記待定，但在相關 repo、分享、合併或部署操作前須解決。使用者無法回覆時，列出未答項並停在相關步驟之前。
+
 [English ↓](#english)
 
 <a id="english"></a>
 
-# AI Development Workflow v0.1.1 POC
+# AI Development Workflow v0.1.2 POC
 
-This v0.1.1 proof of concept is authorized for public publication. Publishing this toolkit is not acceptance of a complete deployment workflow or production readiness. Its purpose is to separate specifications, tests, traceable artifacts, deployment, health checks, rollback and handoff into verifiable stages. **It is not application-specific acceptance or production-release permission.**
+This v0.1.2 proof of concept is authorized for public publication. Publishing this toolkit is not acceptance of a complete deployment workflow or production readiness. Its purpose is to separate specifications, tests, traceable artifacts, deployment, health checks, rollback and handoff into verifiable stages. **It is not application-specific acceptance or production-release permission.**
+
+## New project kickoff form
+
+Copy a blank form: [Traditional Chinese](templates/PROJECT-INTAKE.zh-TW.md) / [English](templates/PROJECT-INTAKE.en.md). The first five fields suffice for a draft; confirm the rest before relevant actions. Reuse known information, omit secrets and do not infer publication rights from a completed form. Only these two forms are explicitly separated by language; other documentation remains bilingual on the same page.
 
 ## Dependency-free example
 
@@ -109,5 +121,9 @@ This is a provider-neutral guide and specification for owners, human collaborato
 - Collaborate through the PR, review and handoff templates. Tests and QA must distinguish passed, failed, untested and acceptance scope; model self-assessment does not replace independent review.
 - Each adopting project creates a minimal overlay in its own repository: pin this specification version/commit, define build/test commands, acceptance thresholds, role owners, allowed environments, deployment adapter, rollback steps and authorization scope. Keep project-specific data there, outside the shared core.
 - Adoption grants no access or publication rights and does not imply a chosen software license. Without explicit approval, stop at a proposal or local validation.
+
+## Mandatory AI project intake
+
+When AI initiates a new project (not merely browsing or maintaining an existing project), it MUST present all eight questions or prefilled answers for confirmation, directly ask the user for every missing or unconfirmed answer (questions may be batched), and record replies and open items. Reuse explicitly provided answers without asking again; do not guess or imply authorization. Confirm questions 1–5 before treating scope or a POC plan as agreed, or implementation as approved. Questions 6–8 may be explicitly marked TBD, but must be resolved before relevant repository, sharing, merge or deployment actions. If the user is unavailable, list unanswered items and stop before those steps.
 
 [繁體中文 ↑](#zh-tw)

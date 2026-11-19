@@ -1,7 +1,7 @@
 {
   "scope": "synthetic-local-only",
-  "version": "0.1.1",
-  "patch": "project-agnostic-workflow",
+  "version": "0.1.2",
+  "patch": "blank-project-intake-forms",
   "python_version": "3.12.14",
   "clean_runs": [
     {
@@ -46,6 +46,11 @@
   "real_deployment": false,
   "external_ci": "not_configured",
   "independent_review": "not_performed",
-  "documentation_pages": 9,
-  "project_specific_content_hits": 0
+  "documentation_pages": 11,
+  "project_specific_content_hits": 0,
+  "bilingual_pages": 9,
+  "separate_language_forms": 2,
+  "intake_fields_per_language": 8,
+  "blank_response_cells": true,
+  "mandatory_ai_intake_rule_checked": true
 }
