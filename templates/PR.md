@@ -3,6 +3,7 @@
 <a id="zh-tw"></a>
 
 # Draft PR
+- [ ] 文件、範例與證據保持專案中立，不含來源專案識別資訊。
 - 規格／目的／完整 diff 範圍：
 - head SHA／產物 SHA-256／CI exact SHA：
 - 實際修改（非版本字串）：
@@ -20,6 +21,7 @@
 <a id="english"></a>
 
 # Draft PR
+- [ ] Documentation, examples and evidence remain project-agnostic without source-project identifiers.
 - Specification / purpose / complete diff scope:
 - Head SHA / artifact SHA-256 / exact CI SHA:
 - Actual code changes (not version strings):

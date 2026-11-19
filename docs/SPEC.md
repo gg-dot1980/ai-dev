@@ -32,7 +32,18 @@
 
 ## 非目標
 
-不設定 production，不連資料庫、不使用 API key、不自動修改 repo 權限，不把單版本功能 smoke 當成 OCR4 跨版本勝率驗收。
+不設定 production，不連資料庫、不使用 API key、不自動修改 repo 權限，不把單版本功能 smoke 當成 應用程式跨版本驗收。
+
+
+## 共用協作基準與採用方式
+
+這是供擁有者、人類協作者、內部／外部 AI 與維護者共同採用的供應商中立說明與規範，不是特定專案回顧或證據存檔庫。
+
+- 擁有者指定範圍、驗收與發布授權；主執行者實作並記錄證據；不同於作者的審查者核對 diff 與測試；部署負責者在明確授權後執行健康檢查及回復。
+- 外部協作者可提出變更及執行無特權的本機檢查；預設不取得憑證、正式環境、合併或部署權限。外部 AI 聯繫與資料分享仍須另有授權。
+- 以 PR／review／handoff 模板協作。測試與 QA 必須分開列出通過、失敗、未測及驗收範圍；模型自評不能代替獨立審查。
+- 各採用專案在自己的儲存庫建立最小 overlay：固定本規範版本／commit，列出建置與測試命令、驗收門檻、各角色負責人、允許環境、部署 adapter、回復步驟及授權範圍。專屬資料留在該專案，不混入共用核心。
+- 採用這份規範本身不授予存取或發布權限，也不代表軟體授權條款已選定。沒有明確批准就停在提案或本機驗證。
 
 [English ↓](#english)
 
@@ -68,6 +79,17 @@ A repository administrator must separately verify branch rules, exact required-c
 
 ## Non-goals
 
-No production setup, database connections, API keys or automatic repository-permission changes. Single-version functional smoke tests do not establish OCR4 cross-version win-rate acceptance.
+No production setup, database connections, API keys or automatic repository-permission changes. Single-version functional smoke tests do not establish cross-version application acceptance.
+
+
+## Shared collaboration baseline and adoption
+
+This is a provider-neutral guide and specification for owners, human collaborators, internal/external AI and maintainers, not a project retrospective or evidence archive.
+
+- The owner defines scope, acceptance and publication authorization. The primary executor implements and records evidence. A reviewer other than the author checks the diff and tests. The deployment owner performs health checks and rollback only after explicit authorization.
+- External contributors may propose changes and run nonprivileged local checks. They receive no credentials, production access, merge or deployment rights by default. Contacting external AI and sharing data require separate authorization.
+- Collaborate through the PR, review and handoff templates. Tests and QA must distinguish passed, failed, untested and acceptance scope; model self-assessment does not replace independent review.
+- Each adopting project creates a minimal overlay in its own repository: pin this specification version/commit, define build/test commands, acceptance thresholds, role owners, allowed environments, deployment adapter, rollback steps and authorization scope. Keep project-specific data there, outside the shared core.
+- Adoption grants no access or publication rights and does not imply a chosen software license. Without explicit approval, stop at a proposal or local validation.
 
 [繁體中文 ↑](#zh-tw)

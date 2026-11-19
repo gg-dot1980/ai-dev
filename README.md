@@ -2,9 +2,9 @@
 
 <a id="zh-tw"></a>
 
-# AI 開發工作流 v0.1.0 POC
+# AI 開發工作流 v0.1.1 POC
 
-這是已獲准公開的 v0.1.0 概念驗證（POC）。公開此工具包不等於完整部署流程或生產驗收。目標是把規格、測試、可追溯產物、部署、健康檢查、回復與交接拆成可驗證步驟。**不是 OCR4 策略或生產發布許可。**
+這是已獲准公開的 v0.1.1 概念驗證（POC）。公開此工具包不等於完整部署流程或生產驗收。目標是把規格、測試、可追溯產物、部署、健康檢查、回復與交接拆成可驗證步驟。**不是特定應用程式的驗收或生產發布許可。**
 
 ## 零相依套件示例
 
@@ -31,8 +31,8 @@ python3 run_example.py --out /tmp/ai-dev-negative-output --negative
 ## 必須分開的三種結論
 
 1. 本範例：本機合成測試與模擬回復，可重跑，不是真實 HTTP／瀏覽器驗證。
-2. 已觀察的 Slime 流程：私人 staging 基線、候選、回復各 9/9 HTTP，回復 hash 一致；CI Worker 位元一致，平台重新封裝 manifest，所以整包位元一致未成立。v2.13 瀏覽器啟動、輸入與停止已成功。這是有限範圍流程證據，不代表各版本遊戲勝率、正式站或生產發布門檻通過。
-3. 獨立強制 review／merge gate：Slime 未配置或核實；本草稿也不配置。作者自己勾選 review、CI 綠燈或 Draft PR 不能替代獨立審查與平台強制措施。
+2. 真實環境整合：必須另行收集基線、候選與回復的 HTTP／瀏覽器證據，並核對來源與產物摘要；平台重封裝時區分檔案位元一致與整包一致。本工具包不提供此類實測證據。
+3. 獨立強制 review／merge gate：本工具包未配置或核實。作者自己勾選 review、CI 綠燈或 Draft PR 不能替代獨立審查與平台強制措施。
 
 ## 發布規則
 
@@ -44,13 +44,24 @@ python3 run_example.py --out /tmp/ai-dev-negative-output --negative
 
 各 Markdown 頁完整中英文並存並提供語言導覽；程式與 JSON 維持單一來源。
 
+
+## 共用協作基準與採用方式
+
+這是供擁有者、人類協作者、內部／外部 AI 與維護者共同採用的供應商中立說明與規範，不是特定專案回顧或證據存檔庫。
+
+- 擁有者指定範圍、驗收與發布授權；主執行者實作並記錄證據；不同於作者的審查者核對 diff 與測試；部署負責者在明確授權後執行健康檢查及回復。
+- 外部協作者可提出變更及執行無特權的本機檢查；預設不取得憑證、正式環境、合併或部署權限。外部 AI 聯繫與資料分享仍須另有授權。
+- 以 PR／review／handoff 模板協作。測試與 QA 必須分開列出通過、失敗、未測及驗收範圍；模型自評不能代替獨立審查。
+- 各採用專案在自己的儲存庫建立最小 overlay：固定本規範版本／commit，列出建置與測試命令、驗收門檻、各角色負責人、允許環境、部署 adapter、回復步驟及授權範圍。專屬資料留在該專案，不混入共用核心。
+- 採用這份規範本身不授予存取或發布權限，也不代表軟體授權條款已選定。沒有明確批准就停在提案或本機驗證。
+
 [English ↓](#english)
 
 <a id="english"></a>
 
-# AI Development Workflow v0.1.0 POC
+# AI Development Workflow v0.1.1 POC
 
-This v0.1.0 proof of concept is authorized for public publication. Publishing this toolkit is not acceptance of a complete deployment workflow or production readiness. Its purpose is to separate specifications, tests, traceable artifacts, deployment, health checks, rollback and handoff into verifiable stages. **It is neither an OCR4 strategy nor production-release permission.**
+This v0.1.1 proof of concept is authorized for public publication. Publishing this toolkit is not acceptance of a complete deployment workflow or production readiness. Its purpose is to separate specifications, tests, traceable artifacts, deployment, health checks, rollback and handoff into verifiable stages. **It is not application-specific acceptance or production-release permission.**
 
 ## Dependency-free example
 
@@ -77,8 +88,8 @@ The example builds fixed JSON artifacts and SHA-256 digests, then simulates base
 ## Three distinct conclusions
 
 1. This example: repeatable local synthetic tests and simulated rollback, not real HTTP or browser validation.
-2. Observed Slime workflow: private staging baseline, candidate and rollback each passed 9/9 HTTP checks, with matching rollback hashes. CI Worker bytes matched, but the platform repackaged the manifest, so whole-package byte identity was not established. Browser startup, input and stop succeeded for v2.13. This limited workflow evidence does not establish cross-version game win rates, production-site acceptance or production release gates.
-3. Independently enforced review/merge gates: not configured or verified in Slime; this POC does not configure them either. An author's checkbox, green CI or Draft PR cannot substitute for independent review and platform enforcement.
+2. Real-environment integration: separately collect baseline, candidate and rollback HTTP/browser evidence and verify source and artifact digests. If a platform repackages artifacts, distinguish file-byte equality from whole-package equality. This toolkit provides no such real-environment measurements.
+3. Independently enforced review/merge gates: not configured or verified by this toolkit. An author's checkbox, green CI or Draft PR cannot substitute for independent review and platform enforcement.
 
 ## Publication rules
 
@@ -87,5 +98,16 @@ Read the current specification, source commit, evidence and limitations, then ob
 ## Subsequent patches
 
 Each incremental patch must synchronize code, fixed tests, synthetic evidence and [CHANGELOG](CHANGELOG.md), and update [VERSION](VERSION). Retain failure cases and revalidate against the same source SHA. Untested items cannot be marked passed. Use Draft PR review, then verify authorization scope and remote contents before publication. Full Traditional Chinese and English documentation coexist on each page; code and JSON remain single-source.
+
+
+## Shared collaboration baseline and adoption
+
+This is a provider-neutral guide and specification for owners, human collaborators, internal/external AI and maintainers, not a project retrospective or evidence archive.
+
+- The owner defines scope, acceptance and publication authorization. The primary executor implements and records evidence. A reviewer other than the author checks the diff and tests. The deployment owner performs health checks and rollback only after explicit authorization.
+- External contributors may propose changes and run nonprivileged local checks. They receive no credentials, production access, merge or deployment rights by default. Contacting external AI and sharing data require separate authorization.
+- Collaborate through the PR, review and handoff templates. Tests and QA must distinguish passed, failed, untested and acceptance scope; model self-assessment does not replace independent review.
+- Each adopting project creates a minimal overlay in its own repository: pin this specification version/commit, define build/test commands, acceptance thresholds, role owners, allowed environments, deployment adapter, rollback steps and authorization scope. Keep project-specific data there, outside the shared core.
+- Adoption grants no access or publication rights and does not imply a chosen software license. Without explicit approval, stop at a proposal or local validation.
 
 [繁體中文 ↑](#zh-tw)
